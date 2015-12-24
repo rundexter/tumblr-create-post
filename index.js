@@ -6,7 +6,7 @@ var request = require('request').defaults({
 });
 
 var pickInputs = {
-        'base-hostname': 'base_hostname',
+        'base-hostname': { key: 'base_hostname', validate: {req: true} },
         'type': 'type',
         'body': 'body',
         'state': 'state',
@@ -47,15 +47,16 @@ module.exports = {
      * @param {AppData} dexter Container for all data used in this workflow.
      */
     run: function(step, dexter) {
-        var inputs = util.pickStringInputs(step, pickInputs),
+        var inputs = util.pickInputs(step, pickInputs),
+            validateErrors = util.checkValidateErrors(inputs, pickInputs),
             oauth = this.authOptions(dexter),
             uriLink = 'blog/' + inputs.base_hostname + '/post';
 
+        if (validateErrors)
+            return this.fail(validateErrors);
+
         if (!oauth)
             return this.fail('A [tumblr_consumer_key,tumblr_consumer_secret,tumblr_token,tumblr_token_secret] environment need for this module.');
-
-        if (!inputs.base_hostname)
-            return this.fail('A [base_hostname] need for this module.');
 
         //send API request
         request.post({
