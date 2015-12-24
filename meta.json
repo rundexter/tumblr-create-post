@@ -4,23 +4,58 @@
 {
     //Required. Inputs the module expects.
     "inputs": [
-        //e.g.
-        /*
+        base-hostname / Hostname
+        type / Type
+        state / State
+        tags / Tags
+        tweet / Tweet
+        date / Date
+        source / Media Source
+        url / Link
         {
-            "id": "from",
-            "title":"From"
+            "id": "base-hostname",
+            "title":"Hostname"
+        },
+        {
+            "id": "type",
+            "title":"Type"
+        },
+        {
+            "id": "state",
+            "title":"State"
+        },
+        {
+            "id": "tags",
+            "title":"Comma-separated tags"
+        },
+        {
+            "id": "tweet",
+            "title":"Tweet"
+        },
+        {
+            "id": "date",
+            "title":"Date"
+        },
+        {
+            "id": "body",
+            "title":"Body text"
+        },
+        {
+            "id": "quote",
+            "title":"Quote text"
+        },
+        {
+            "id": "url",
+            "title":"Link"
         }
-        */
     ],
     //Required. Outputs the module emits.
     "outputs": [
-      //e.g.
-      /*
         {
-            "id": "from",
-            "title":"From"
+            "id": "post_id",
+            "title":"Post ID"
         }
-      */
     ],
+    "icon": "tumblr",
     "title": "Tumblr Create Post" /* Required.A display name for the module */
 }
