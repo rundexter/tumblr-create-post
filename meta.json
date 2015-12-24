@@ -4,14 +4,6 @@
 {
     //Required. Inputs the module expects.
     "inputs": [
-        base-hostname / Hostname
-        type / Type
-        state / State
-        tags / Tags
-        tweet / Tweet
-        date / Date
-        source / Media Source
-        url / Link
         {
             "id": "base-hostname",
             "title":"Hostname"
