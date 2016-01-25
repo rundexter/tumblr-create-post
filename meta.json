@@ -48,6 +48,9 @@
             "title":"Post ID"
         }
     ],
+    "providers": [{
+        "name": "tumblr"
+    }],
     "icon": "tumblr",
     "title": "Tumblr Create Post" /* Required.A display name for the module */
 }
